@@ -1,0 +1,25 @@
+<%- include ('header.ejs') %>
+<html>
+    <head>
+        <link rel="stylesheet" href="../public/style.css">
+    </head>    
+
+    <body>
+        <div>
+            <h1> <%= kindofDay %></h1>
+        </div>
+        <form name="add" action="/" method="post">
+            
+            <input type="text" name="enteredtask" placeholder="Enter task">
+            <button type="submit">Enter</button>
+         
+    </form>
+   
+    <form name="delete" action="/delete" method="post">
+        <% tasksentered.forEach((task,index)=>{ %>
+            <input type="checkbox" name="checkbox" id="<%=task.id %>" value="<%=task.id %>" onchange="this.form.submit()"><%= task.taskname%> 
+            <br>
+          <% }) %>
+   
+</form>
+</html>
